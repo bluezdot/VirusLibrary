@@ -1,0 +1,7 @@
+A molecule, usually a protein, that catalyzes (increases the rate of) chemical reactions in the body.
+Enzymes are essential to all body functions.
+HIV requires specific enzymes, such as reverse transcriptase or integrase, to replicate.
+Reverse transcriptase builds a DNA copy of the viral RNA genome, which is then used to build new viruses.
+This structure captures the enzyme as it is building a DNA strand (red) from the viral RNA (yellow).
+It will then destroy the RNA and build a second DNA strand.
+Many of the drugs currently used to fight HIV infection block the action of reverse transcriptase.
