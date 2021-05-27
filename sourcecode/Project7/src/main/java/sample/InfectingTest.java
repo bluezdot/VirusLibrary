@@ -19,7 +19,7 @@ public class InfectingTest extends Application {
     public void start(Stage primaryStage) throws Exception{
         Virus hiv = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/HIV/").getFile());
         Cell cell = new Cell(getClass().getClassLoader().getResource("cell/Cell").getFile());
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/infecting.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/infectingTest.fxml"));
         InfectingControllerTest infectingControllerTest = new InfectingControllerTest(hiv, cell);
         loader.setController(infectingControllerTest);
         Parent root = loader.load();

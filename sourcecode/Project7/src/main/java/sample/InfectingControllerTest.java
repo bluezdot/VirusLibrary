@@ -2,7 +2,9 @@ package sample;
 
 import hust.soict.dsai.team3.model.cell.Cell;
 import hust.soict.dsai.team3.model.virus.Virus;
-import javafx.animation.*;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Bounds;
@@ -31,7 +33,7 @@ public class InfectingControllerTest implements Initializable {
 
         cellClass.getLayer().setFitHeight(300);
         cellClass.getLayer().setPreserveRatio(true);
-        cellClass.getNucleus().setFitHeight(100);
+        cellClass.getNucleus().setFitHeight(130);
         cellClass.getNucleus().setPreserveRatio(true);
 //        cellClass.getMembrane().setVisible(false);
 
@@ -45,7 +47,7 @@ public class InfectingControllerTest implements Initializable {
 
         translateTransition = createTranslateTransitionFor(rootVirus, cellClass.getNucleus());
 
-        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(500),
+        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(400),
                 (evt) -> {
                     translateTransition.play();
                     if (intersects(rootVirus, cellClass.getLayer())){
@@ -81,6 +83,7 @@ public class InfectingControllerTest implements Initializable {
 
     @FXML
     private StackPane rootVirus;
+
 
     private TranslateTransition createTranslateTransitionFor(Node node, Node target){
         TranslateTransition translateTransition = new TranslateTransition();

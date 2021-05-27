@@ -1,6 +1,6 @@
 package hust.soict.dsai.team3.screen;
 
-import hust.soict.dsai.team3.controller.EnvelopeStructureController;
+import hust.soict.dsai.team3.controller.StructureController;
 import hust.soict.dsai.team3.model.virus.EnvelopeVirus;
 import hust.soict.dsai.team3.model.virus.Virus;
 import javafx.application.Application;
@@ -18,9 +18,12 @@ public class StructureScreen extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Virus hiv = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/HIV/").getFile());
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("virus/virus_structure.fxml"));
+        Virus pvirus = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/PolioVirus/").getFile());
+        Virus hcv = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/HCV/").getFile());
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/virus_structure.fxml"));
 //        StructureController hover = new StructureController(hiv);
-        EnvelopeStructureController hover = new EnvelopeStructureController(hiv);
+//        StructureController hover = new StructureController(pvirus);
+        StructureController hover = new StructureController(hcv);
         hover.setStage(primaryStage);
         loader.setController(hover);
         Parent root = loader.load();
