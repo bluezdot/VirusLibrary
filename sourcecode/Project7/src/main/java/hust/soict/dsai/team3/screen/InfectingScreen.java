@@ -13,6 +13,7 @@ import sample.InfectingControllerTest;
 
 public class InfectingScreen extends Application {
 
+
     public static void main(String[] args) {
         launch(args);
     }
