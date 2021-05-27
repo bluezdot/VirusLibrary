@@ -17,11 +17,11 @@ public class TestController {
     TranslateTransition translateTransition;
     private int _dy = 3;
     private Virus virus_class;
-    public final Image AN = new Image(getClass().getClassLoader().getResource("virus/HIV/HIV_ARN.png").toString());
-    public final Image CAPSID = new Image(getClass().getClassLoader().getResource("virus/HIV/HIV_capsid.png").toString());
-    public final Image ENVELOPE = new Image(getClass().getClassLoader().getResource("virus/HIV/HIV_envelope_glicoprotein.png").toString());
-    public final Image ENZIME = new Image(getClass().getClassLoader().getResource("virus/HIV/HIV_enzim.png").toString());
-    public final Image LAYER = new Image(getClass().getClassLoader().getResource("virus/HIV/HIV_layer.png").toString());
+//    public final Image AN = new Image(getClass().getClassLoader().getResource("virus/HIV/HIV_ARN.png").toString());
+//    public final Image CAPSID = new Image(getClass().getClassLoader().getResource("virus/HIV/HIV_capsid.png").toString());
+//    public final Image ENVELOPE = new Image(getClass().getClassLoader().getResource("virus/HIV/HIV_envelope_glicoprotein.png").toString());
+//    public final Image ENZIME = new Image(getClass().getClassLoader().getResource("virus/HIV/HIV_enzim.png").toString());
+//    public final Image LAYER = new Image(getClass().getClassLoader().getResource("virus/HIV/HIV_layer.png").toString());
 
     public TestController(Virus virus) {
         this.virus_class = virus;
@@ -40,7 +40,7 @@ public class TestController {
         an.setImage(virus_class.getOverviewImageOf("AcidNucleic"));
         envelope.setImage(virus_class.getOverviewImageOf("Envelope"));
         enzim.setImage(virus_class.getOverviewImageOf("Enzime"));
-        layer.setImage(LAYER);
+//        layer.setImage(LAYER);
         capsid.setImage(virus_class.getOverviewImageOf("Capsid"));
         initPathTransition();
         cell.setImage(new Image("cell/cell.png"));

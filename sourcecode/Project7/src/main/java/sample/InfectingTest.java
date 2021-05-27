@@ -1,6 +1,6 @@
-package hust.soict.dsai.team3.screen;
+package sample;
 
-import hust.soict.dsai.team3.controller.EnvelopeStructureController;
+import hust.soict.dsai.team3.model.cell.Cell;
 import hust.soict.dsai.team3.model.virus.EnvelopeVirus;
 import hust.soict.dsai.team3.model.virus.Virus;
 import javafx.application.Application;
@@ -9,7 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class StructureScreen extends Application {
+public class InfectingTest extends Application {
 
     public static void main(String[] args) {
         launch(args);
@@ -18,14 +18,13 @@ public class StructureScreen extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Virus hiv = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/HIV/").getFile());
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("virus/virus_structure.fxml"));
-//        StructureController hover = new StructureController(hiv);
-        EnvelopeStructureController hover = new EnvelopeStructureController(hiv);
-        hover.setStage(primaryStage);
-        loader.setController(hover);
+        Cell cell = new Cell(getClass().getClassLoader().getResource("cell/Cell").getFile());
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/infecting.fxml"));
+        InfectingControllerTest infectingControllerTest = new InfectingControllerTest(hiv, cell);
+        loader.setController(infectingControllerTest);
         Parent root = loader.load();
-        primaryStage.setTitle("Virus Structure");
-        primaryStage.setFullScreen(true);
+        primaryStage.setTitle("Virus Demonstration");
+
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.show();

@@ -12,6 +12,9 @@ public class EnvelopeVirus extends Virus implements AttackCell {
     public EnvelopeVirus(String dirPath){
         super(dirPath);
     }
+    public EnvelopeVirus(EnvelopeVirus eVirus){
+        super(eVirus);
+    }
 
     protected void readEnvelope(String dirPath) throws Exception{
         File folder = new File(dirPath);
@@ -27,6 +30,7 @@ public class EnvelopeVirus extends Virus implements AttackCell {
 
     @Override
     public void attack(Cell cell) {
-
+        cell.setInfected(true);
+//        cell.addInfectVirus(this);
     }
 }

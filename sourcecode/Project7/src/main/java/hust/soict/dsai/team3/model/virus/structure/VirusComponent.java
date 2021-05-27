@@ -1,12 +1,13 @@
 package hust.soict.dsai.team3.model.virus.structure;
 
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.io.File;
 import java.nio.file.Files;
 
 
-public class VirusComponent  {
+public class VirusComponent extends ImageView {
     protected Image overview;
     protected Image detail;
     protected String info;
@@ -17,6 +18,7 @@ public class VirusComponent  {
         detail = new Image(urlDetail);
         this.info = info;
         this.name = name;
+        setImage(detail);
     }
 
     @Override

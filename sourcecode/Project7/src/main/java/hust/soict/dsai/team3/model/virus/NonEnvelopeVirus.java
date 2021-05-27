@@ -8,6 +8,10 @@ public class NonEnvelopeVirus extends Virus implements AttackCell {
         super(dirPath);
     }
 
+    public NonEnvelopeVirus(NonEnvelopeVirus eVirus){
+        this(eVirus.dirPath);
+    }
+
     @Override
     public void attack(Cell cell) {
         ((AcidNucleic) virusComponentHashMap.get(ACID_NUCLEIC)).attack(cell);

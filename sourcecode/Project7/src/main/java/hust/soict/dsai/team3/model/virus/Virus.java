@@ -2,11 +2,12 @@ package hust.soict.dsai.team3.model.virus;
 
 import hust.soict.dsai.team3.model.virus.structure.*;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.io.File;
 import java.util.HashMap;
 
-public class Virus {
+public abstract class Virus extends ImageView implements AttackCell{
     public static final String ACID_NUCLEIC = "AcidNucleic";
     public static final String CAPSID = "Capsid";
     public static final String ENZIME = "Enzime";
@@ -21,6 +22,7 @@ public class Virus {
         } catch (Exception e){
             e.printStackTrace();
         }
+        setImage(overview);
     }
 
     public Virus(Virus that){

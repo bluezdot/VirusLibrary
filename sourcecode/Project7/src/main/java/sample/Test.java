@@ -1,5 +1,6 @@
 package sample;
 
+import hust.soict.dsai.team3.model.virus.EnvelopeVirus;
 import hust.soict.dsai.team3.model.virus.Virus;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +12,7 @@ public class Test extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Virus hiv = new Virus(getClass().getClassLoader().getResource("virus/HIV/").getFile());
+        Virus hiv = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/HIV/").getFile());
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("virus/group_virus.fxml"));
         TestController testController = new TestController(hiv);
         loader.setController(testController);
