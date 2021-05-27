@@ -1,17 +1,25 @@
 package hust.soict.dsai.team3.controller;
 
+import hust.soict.dsai.team3.model.cell.Cell;
 import hust.soict.dsai.team3.model.virus.Virus;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import sample.InfectingControllerTest;
 
 import java.net.URL;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class StructureController implements Initializable {
@@ -20,6 +28,7 @@ public class StructureController implements Initializable {
     protected ImageView primaryView;
     protected ImageView hoverView;
     protected Boolean presentMode = false;
+    protected HashMap<String, Button> btnComponents = new HashMap<>();
 
 
     public StructureController(Virus virus) {
@@ -27,16 +36,13 @@ public class StructureController implements Initializable {
     }
 
     @FXML
+    protected Button btnRepeatInfecting;
+
+    @FXML
+    protected Button changeCenter;
+
+    @FXML
     protected BorderPane borderPane;
-
-    @FXML
-    protected Button btnAN;
-
-    @FXML
-    protected Button btnCapsid;
-
-    @FXML
-    protected Button btnEnzime;
 
     @FXML
     protected VBox center;
@@ -47,40 +53,61 @@ public class StructureController implements Initializable {
         center.getChildren().add(primaryView);
         hoverView = new ImageView();
 
-        btnAN.hoverProperty().addListener((javafx.beans.value.ChangeListener<? super Boolean>) (observable, oldValue, newValue) -> {
-            setHoverPic(newValue, Virus.ACID_NUCLEIC);
-        });
+        for (String component : virus.getComponents().keySet()){
+            btnComponents.put(component, new Button(component));
+            setHoverProperty(btnComponents.get(component), component);
+            btnComponents.get(component).setOnAction(e -> {
+                setCenterPic(e, component);
+            });
+        }
 
-        btnCapsid.hoverProperty().addListener((javafx.beans.value.ChangeListener<? super Boolean>) (observable, oldValue, newValue) -> {
-            setHoverPic(newValue, Virus.CAPSID);
-        });
-
-        btnEnzime.hoverProperty().addListener((javafx.beans.value.ChangeListener<? super Boolean>) (observable, oldValue, newValue) -> {
-            setHoverPic(newValue, Virus.ENZIME);
-        });
+        GridPane left = new GridPane();
+        int start = 0;
+        for (Button button : btnComponents.values()){
+            left.add(button, 0, start++);
+        }
+        left.setVgap(10);
+        left.setAlignment(Pos.CENTER);
+        borderPane.setLeft(left);
+        BorderPane.setAlignment(left, Pos.CENTER);
     }
 
     public void setStage(Stage stage) {
         this.stage = stage;
     }
 
-
     @FXML
-    void anPressed(ActionEvent event) {
-        setCenterPic(event, Virus.ACID_NUCLEIC);
+    void showInfectingProcess(ActionEvent event) throws Exception{
+
+        if (changeCenter.getText().contains("Infecting")) {
+            Cell cell = new Cell(getClass().getClassLoader().getResource("cell/Cell").getFile());
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/infectingOld.fxml"));
+            InfectingControllerTest infectingControllerTest = new InfectingControllerTest(virus, cell);
+            loader.setController(infectingControllerTest);
+            Parent root = loader.load();
+            borderPane.setCenter(root);
+            borderPane.getLeft().setVisible(false);
+            changeCenter.setText("Return to Virus Structure");
+            btnRepeatInfecting.setVisible(true);
+        }
+        else {
+            borderPane.setCenter(center);
+            borderPane.getLeft().setVisible(true);
+            changeCenter.setText("Show Infecting Process");
+            btnRepeatInfecting.setVisible(false);
+        }
     }
 
     @FXML
-    void capsidPressed(ActionEvent event) {
-        setCenterPic(event, Virus.CAPSID);
+    protected  void repeatInfecting(ActionEvent event) throws Exception{
+        Cell cell = new Cell(getClass().getClassLoader().getResource("cell/Cell").getFile());
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/infectingOld.fxml"));
+        InfectingController infectingController = new InfectingController(virus, cell);
+        loader.setController(infectingController);
+        Parent root = loader.load();
+        borderPane.setCenter(root);
+        changeCenter.setText("Return to Virus Structure");
     }
-
-    @FXML
-    void enzimePressed(ActionEvent event) {
-        setCenterPic(event, Virus.ENZIME);
-    }
-
-
 
 
     protected void setHoverPic(Boolean newValue, String component) {
@@ -110,5 +137,11 @@ public class StructureController implements Initializable {
             presentMode = false;
             ((Button) event.getSource()).setText(component);
         }
+    }
+
+    protected void setHoverProperty(Node node, String component){
+        node.hoverProperty().addListener((javafx.beans.value.ChangeListener<? super Boolean>) (observable, oldValue, newValue) -> {
+            setHoverPic(newValue, component);
+        });
     }
 }

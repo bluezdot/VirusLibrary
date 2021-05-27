@@ -16,7 +16,7 @@
       <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <buttons>
           <Button mnemonicParsing="false" text="Return to Virus select" />
-            <Button mnemonicParsing="false" text="Show Infecting Process" />
+            <Button fx:id="changeCenter" mnemonicParsing="false" onAction="#showInfectingProcess" text="Show Infecting Process" />
         </buttons>
       </ButtonBar>
    </bottom>

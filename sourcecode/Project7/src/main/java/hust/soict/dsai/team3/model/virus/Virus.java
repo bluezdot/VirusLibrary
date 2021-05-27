@@ -86,4 +86,8 @@ public abstract class Virus extends ImageView implements AttackCell{
     public Image getOverviewImage() {
         return overview;
     }
+
+    public HashMap<String, VirusComponent> getComponents() {
+        return virusComponentHashMap;
+    }
 }
