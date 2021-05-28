@@ -34,7 +34,7 @@ public class InfectingController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        cell.setComponentsSize(130, 70, 100);
+        cell.setComponentsSize(300,300,300);
 
 
         cellPane.getChildren().clear();
@@ -99,7 +99,7 @@ public class InfectingController implements Initializable {
                     if (intersects(rootVirus, cell.getLayer())) {
                         virus.attack(cell);
                     }
-                    if (intersects(rootVirus, cell.getNucleus())) {
+                    if (intersects(rootVirus, cell.getCenter())) {
                         translateTransition.pause();
                         cell.addInfectVirus(virus);
                     }
@@ -138,7 +138,7 @@ public class InfectingController implements Initializable {
     StackPane infectCell() {
         StackPane sPane = new StackPane();
         Cell cell = new Cell(this.cell);
-        cell.setComponentsSize(130, 70, 100);
+        cell.setComponentsSize(300,300,300);
         sPane.getChildren().add(cell);
         virus.attack(cell);
         int max = 400;

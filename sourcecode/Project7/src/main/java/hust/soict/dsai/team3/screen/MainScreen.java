@@ -1,14 +1,13 @@
 package hust.soict.dsai.team3.screen;
 
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-
+import hust.soict.dsai.team3.controller.MainScreenController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import hust.soict.dsai.team3.controller.MainScreenController;
+
+import javax.swing.*;
 
 public class MainScreen extends Application {
 
@@ -21,7 +20,7 @@ public class MainScreen extends Application {
         // window = primaryStage;
 
         try {
-            FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("/fxml/MainScreen.fxml"));
+            FXMLLoader fxmlloader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/MainScreen.fxml"));
             MainScreenController controller = new MainScreenController();
             fxmlloader.setController(controller);
             Parent root = fxmlloader.load();

@@ -85,6 +85,8 @@ public class Cell extends StackPane{
         return (Membrane) cellComponentHashMap.get(MEMBRANE);
     }
 
+    public CellComponent getCenter() { return cellComponentHashMap.get("Center");};
+
     public void setInfected(Boolean infected) {
         isInfected = infected;
         for (CellComponent component : cellComponentHashMap.values()){
@@ -111,8 +113,8 @@ public class Cell extends StackPane{
 
     public void setComponentsSize(double x1, double x2, double x3){
         this.getNucleus().setSize(x1);
-        this.getLayer().setSize(x1 + x2);
-        this.getMembrane().setSize(x1 + x2 + x3);
+        this.getLayer().setSize(x2);
+        this.getMembrane().setSize(x3);
     }
 
 
