@@ -35,6 +35,6 @@ public class AcidNucleic extends VirusComponent implements AttackCell {
 
     @Override
     public void attack(Cell cell) {
-
+        cell.getNucleus().setInjectAN(this);
     }
 }

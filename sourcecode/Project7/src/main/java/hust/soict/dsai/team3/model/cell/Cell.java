@@ -42,6 +42,10 @@ public class Cell extends StackPane{
         getNucleus().toFront();
     }
 
+    public Cell(Cell that){
+        this(that.dirPath);
+    }
+
     protected void readData(String dirPath) throws Exception{
         File folder = new File(dirPath);
         File[] listOfFiles = folder.listFiles();
@@ -103,6 +107,12 @@ public class Cell extends StackPane{
         int min = -70;
         newVirus.setTranslateX(((Math.random() * (max - min)) + min));
         newVirus.setTranslateY(((Math.random() * (max - min)) + min));
+    }
+
+    public void setComponentsSize(double x1, double x2, double x3){
+        this.getNucleus().setSize(x1);
+        this.getLayer().setSize(x1 + x2);
+        this.getMembrane().setSize(x1 + x2 + x3);
     }
 
 

@@ -57,4 +57,6 @@ public class VirusComponent extends ImageView {
     public Image getOverviewImage() {
         return overview;
     }
+
+
 }

@@ -14,7 +14,9 @@ public class NonEnvelopeVirus extends Virus implements AttackCell {
 
     @Override
     public void attack(Cell cell) {
+        cell.setInfected(true);
+        setImage(getDetailImageOf(ACID_NUCLEIC));
+//        setVisible(false);
         ((AcidNucleic) virusComponentHashMap.get(ACID_NUCLEIC)).attack(cell);
-
     }
 }

@@ -1,7 +1,10 @@
 package hust.soict.dsai.team3.model.cell.structure;
 
 import hust.soict.dsai.team3.model.virus.structure.AcidNucleic;
+import javafx.scene.SnapshotParameters;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 
 import java.io.File;
 
@@ -34,5 +37,15 @@ public class Nucleus extends CellComponent{
         return new Nucleus(normal,infected, folder.getName());
     }
 
-
+    public void setInjectAN(AcidNucleic injectAN) {
+        Double height = this.getFitWidth();
+        Double width = this.getFitWidth();
+        Canvas canvas = new Canvas(width, height);
+        canvas.getGraphicsContext2D().drawImage(this.getInfectedImage(), 0, 0, width, height);
+        canvas.getGraphicsContext2D().drawImage(injectAN.getDetailImage(), width /4, height / 4, width /2, height / 2 );
+        SnapshotParameters params = new SnapshotParameters();
+        params.setFill(Color.TRANSPARENT);
+        setImage(canvas.snapshot(params, null));
+        this.injectAN = injectAN;
+    }
 }

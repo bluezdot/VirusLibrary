@@ -57,4 +57,8 @@ public class CellComponent extends ImageView {
         }
     }
 
+    public void setSize(double x1){
+        this.setFitWidth(x1);
+        this.setPreserveRatio(true);
+    }
 }

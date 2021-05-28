@@ -16,7 +16,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import sample.InfectingControllerTest;
 
 import java.net.URL;
 import java.util.HashMap;
@@ -82,8 +81,8 @@ public class StructureController implements Initializable {
         if (changeCenter.getText().contains("Infecting")) {
             Cell cell = new Cell(getClass().getClassLoader().getResource("cell/Cell").getFile());
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/infectingOld.fxml"));
-            InfectingControllerTest infectingControllerTest = new InfectingControllerTest(virus, cell);
-            loader.setController(infectingControllerTest);
+            InfectingController infectingController = new InfectingController(virus, cell);
+            loader.setController(infectingController);
             Parent root = loader.load();
             borderPane.setCenter(root);
             borderPane.getLeft().setVisible(false);
