@@ -1,8 +1,8 @@
 package hust.soict.dsai.team3.controller;
 
 import hust.soict.dsai.team3.model.virus.EnvelopeVirus;
+import hust.soict.dsai.team3.model.virus.NonEnvelopeVirus;
 import hust.soict.dsai.team3.model.virus.Virus;
-import hust.soict.dsai.team3.screen.StructureScreen;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -76,11 +76,11 @@ public class MainScreenController {
      void btnWithEnvelopeOnPressed(ActionEvent event) throws IOException {
         Stage primaryStage = (Stage) btnWithEnvelope.getScene().getWindow();
          Virus hiv = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/HIV/").getFile());
-         Virus pvirus = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/PolioVirus/").getFile());
+         Virus pvirus = new NonEnvelopeVirus(getClass().getClassLoader().getResource("virus/PolioVirus/").getFile());
          Virus hcv = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/HCV/").getFile());
 
          FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/virus_structure.fxml"));
-         StructureController hover = new StructureController(hcv);
+         StructureController hover = new StructureController(hiv);
 
          loader.setController(hover);
          Parent root = loader.load();
@@ -96,11 +96,11 @@ public class MainScreenController {
      void btnWithoutEnvelopeOnPressed(ActionEvent event) throws IOException {
          Stage primaryStage = (Stage) btnWithEnvelope.getScene().getWindow();
          Virus hiv = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/HIV/").getFile());
-         Virus pvirus = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/PolioVirus/").getFile());
+         Virus pvirus = new NonEnvelopeVirus(getClass().getClassLoader().getResource("virus/PolioVirus/").getFile());
          Virus hcv = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/HCV/").getFile());
 
          FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/virus_structure.fxml"));
-         StructureController hover = new StructureController(hcv);
+         StructureController hover = new StructureController(pvirus);
 
          loader.setController(hover);
          Parent root = loader.load();

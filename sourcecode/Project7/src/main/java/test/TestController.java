@@ -1,4 +1,4 @@
-package sample;
+package test;
 
 import hust.soict.dsai.team3.model.virus.Virus;
 import javafx.animation.*;
