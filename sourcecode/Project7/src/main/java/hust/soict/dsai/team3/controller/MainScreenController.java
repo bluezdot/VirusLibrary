@@ -29,13 +29,28 @@ public class MainScreenController {
     private MenuItem itemAim;
 
     @FXML
-    private Button btnWithoutEnvelope;
-
-    @FXML
-    private Button btnWithEnvelope;
+    private MenuItem itemProblem;
 
     @FXML
     private MenuItem itemUsage;
+
+    @FXML
+    private Button btnHIV;
+
+    @FXML
+    private Button btnHBV;
+
+    @FXML
+    private Button btnHCV;
+
+    @FXML
+    private Button btnPolioVirus;
+
+    @FXML
+    private Button btnNoroVirus;
+
+    @FXML
+    private Button btnRhinoVirus;
 
 
     // Handle Menu: problem, usage and aim button on pressed
@@ -72,53 +87,144 @@ public class MainScreenController {
 
     // Handle switch scene
 
-     @FXML
-     void btnWithEnvelopeOnPressed(ActionEvent event) throws IOException {
-        Stage primaryStage = (Stage) btnWithEnvelope.getScene().getWindow();
-         Virus hiv = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/HIV/").getFile());
-         Virus pvirus = new NonEnvelopeVirus(getClass().getClassLoader().getResource("virus/PolioVirus/").getFile());
-         Virus hcv = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/HCV/").getFile());
+    @FXML
+    void btnHIVOnPressed(ActionEvent event) throws IOException {
+        Stage primaryStage = (Stage) btnHIV.getScene().getWindow();
+        Virus hiv = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/HIV/").getFile());
+        Virus pvirus = new NonEnvelopeVirus(getClass().getClassLoader().getResource("virus/PolioVirus/").getFile());
+        Virus hcv = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/HCV/").getFile());
 
-         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/virus_structure.fxml"));
-         StructureController hover = new StructureController(hiv);
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/virus_structure.fxml"));
+        StructureController hover = new StructureController(hiv);
 
-         loader.setController(hover);
-         Parent root = loader.load();
-         Scene scene = new Scene(root);
+        loader.setController(hover);
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
 
-         primaryStage.setTitle("Virus Structure");
-         primaryStage.setFullScreen(true);
-         primaryStage.setScene(scene);
-         primaryStage.show();
-     }
+        primaryStage.setTitle("Virus Structure");
+        primaryStage.setFullScreen(true);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
 
-     @FXML
-     void btnWithoutEnvelopeOnPressed(ActionEvent event) throws IOException {
-         Stage primaryStage = (Stage) btnWithEnvelope.getScene().getWindow();
-         Virus hiv = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/HIV/").getFile());
-         Virus pvirus = new NonEnvelopeVirus(getClass().getClassLoader().getResource("virus/PolioVirus/").getFile());
-         Virus hcv = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/HCV/").getFile());
+    @FXML
+    void btnHBVOnPressed(ActionEvent event) throws IOException {
+        Stage primaryStage = (Stage) btnHBV.getScene().getWindow();
+        Virus hbv = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/HBV/").getFile());
 
-         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/virus_structure.fxml"));
-         StructureController hover = new StructureController(pvirus);
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/virus_structure.fxml"));
+        StructureController hover = new StructureController(hbv);
 
-         loader.setController(hover);
-         Parent root = loader.load();
-         Scene scene = new Scene(root);
+        loader.setController(hover);
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
 
-         primaryStage.setTitle("Virus Structure");
-         primaryStage.setFullScreen(true);
-         primaryStage.setScene(scene);
-         primaryStage.show();
-     }
+        primaryStage.setTitle("Virus Structure");
+        primaryStage.setFullScreen(true);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
+    }
+
+    @FXML
+    void btnHCVOnPressed(ActionEvent event) throws IOException {
+        Stage primaryStage = (Stage) btnHCV.getScene().getWindow();
+        Virus hcv = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/HCV/").getFile());
+
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/virus_structure.fxml"));
+        StructureController hover = new StructureController(hcv);
+
+        loader.setController(hover);
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+
+        primaryStage.setTitle("Virus Structure");
+        primaryStage.setFullScreen(true);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    @FXML
+    void btnNoroVirusOnPressed(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnPolioVirusOnPressed(ActionEvent event) throws IOException {
+        Stage primaryStage = (Stage) btnPolioVirus.getScene().getWindow();
+        Virus polio = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/PolioVirus/").getFile());
+
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/virus_structure.fxml"));
+        StructureController hover = new StructureController(polio);
+
+        loader.setController(hover);
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+
+        primaryStage.setTitle("Virus Structure");
+        primaryStage.setFullScreen(true);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    @FXML
+    void btnRhinoVirusOnPressed(ActionEvent event) {
+
+    }
+
+//     @FXML
+//     void btnWithEnvelopeOnPressed(ActionEvent event) throws IOException {
+//        Stage primaryStage = (Stage) btnWithEnvelope.getScene().getWindow();
+//         Virus hiv = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/HIV/").getFile());
+//         Virus pvirus = new NonEnvelopeVirus(getClass().getClassLoader().getResource("virus/PolioVirus/").getFile());
+//         Virus hcv = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/HCV/").getFile());
+//
+//         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/virus_structure.fxml"));
+//         StructureController hover = new StructureController(hiv);
+//
+//         loader.setController(hover);
+//         Parent root = loader.load();
+//         Scene scene = new Scene(root);
+//
+//         primaryStage.setTitle("Virus Structure");
+//         primaryStage.setFullScreen(true);
+//         primaryStage.setScene(scene);
+//         primaryStage.show();
+//     }
+//
+//     @FXML
+//     void btnWithoutEnvelopeOnPressed(ActionEvent event) throws IOException {
+//         Stage primaryStage = (Stage) btnWithEnvelope.getScene().getWindow();
+//         Virus hiv = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/HIV/").getFile());
+//         Virus pvirus = new NonEnvelopeVirus(getClass().getClassLoader().getResource("virus/PolioVirus/").getFile());
+//         Virus hcv = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/HCV/").getFile());
+//
+//         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/virus_structure.fxml"));
+//         StructureController hover = new StructureController(pvirus);
+//
+//         loader.setController(hover);
+//         Parent root = loader.load();
+//         Scene scene = new Scene(root);
+//
+//         primaryStage.setTitle("Virus Structure");
+//         primaryStage.setFullScreen(true);
+//         primaryStage.setScene(scene);
+//         primaryStage.show();
+//     }
+
 
 
     @FXML
     void initialize() {
+        assert btnHBV != null : "fx:id=\"btnHBV\" was not injected: check your FXML file 'MainScreen.fxml'.";
         assert itemAim != null : "fx:id=\"itemAim\" was not injected: check your FXML file 'MainScreen.fxml'.";
-        assert btnWithoutEnvelope != null : "fx:id=\"btnWithoutEnvelope\" was not injected: check your FXML file 'MainScreen.fxml'.";
-        assert btnWithEnvelope != null : "fx:id=\"btnWithEnvelope\" was not injected: check your FXML file 'MainScreen.fxml'.";
+        assert itemProblem != null : "fx:id=\"itemProblem\" was not injected: check your FXML file 'MainScreen.fxml'.";
+        assert btnPolioVirus != null : "fx:id=\"btnPolioVirus\" was not injected: check your FXML file 'MainScreen.fxml'.";
+        assert btnHIV != null : "fx:id=\"btnHIV\" was not injected: check your FXML file 'MainScreen.fxml'.";
+        assert btnNoroVirus != null : "fx:id=\"btnNoroVirus\" was not injected: check your FXML file 'MainScreen.fxml'.";
+        assert btnRhinoVirus != null : "fx:id=\"btnRhinoVirus\" was not injected: check your FXML file 'MainScreen.fxml'.";
         assert itemUsage != null : "fx:id=\"itemUsage\" was not injected: check your FXML file 'MainScreen.fxml'.";
+        assert btnHCV != null : "fx:id=\"btnHCV\" was not injected: check your FXML file 'MainScreen.fxml'.";
 
     }
 }

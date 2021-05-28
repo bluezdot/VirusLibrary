@@ -35,30 +35,81 @@
                 </Label>
             </top>
             <center>
-                <SplitPane dividerPositions="0.5" prefHeight="625.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+                <SplitPane dividerPositions="0.5" prefHeight="558.0" prefWidth="984.0" BorderPane.alignment="CENTER">
                     <items>
                         <VBox prefHeight="200.0" prefWidth="100.0">
                             <children>
-                                <Button fx:id="btnWithEnvelope" mnemonicParsing="false" onAction="#btnWithEnvelopeOnPressed" prefHeight="646.0" prefWidth="478.0" text="Virus with lipid envelope">
+                        <Label text="Virus with lipid envelope" textAlignment="CENTER" textFill="#0f5dc3">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="45.0" top="20.0" />
+                           </VBox.margin>
+                        </Label>
+                                <Button fx:id="btnHIV" mnemonicParsing="false" onAction="#btnHIVOnPressed" prefHeight="106.0" prefWidth="420.0" text="Human Immunodeficiency Virus (HIV)">
                                     <font>
-                                        <Font size="32.0" />
+                                        <Font size="22.0" />
                                     </font>
                                     <VBox.margin>
-                                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                        <Insets left="30.0" top="50.0" />
                                     </VBox.margin>
                                 </Button>
+                        <Button fx:id="btnHBV" mnemonicParsing="false" onAction="#btnHBVOnPressed" prefHeight="107.0" prefWidth="418.0" text="Hepacivirus B Virus (HBV)">
+                           <VBox.margin>
+                              <Insets left="30.0" top="30.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnHCV" mnemonicParsing="false" onAction="#btnHCVOnPressed" prefHeight="104.0" prefWidth="418.0" text="Hepacivirus C Virus (HCV)">
+                           <VBox.margin>
+                              <Insets left="30.0" top="30.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Button>
                             </children>
                         </VBox>
                         <VBox prefHeight="200.0" prefWidth="100.0">
                             <children>
-                                <Button fx:id="btnWithoutEnvelope" mnemonicParsing="false" onAction="#btnWithoutEnvelopeOnPressed" prefHeight="644.0" prefWidth="478.0" text="Virus without lipid envelope">
+                        <Label text="Virus without lipid envelope" textFill="#0f5dc3">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="28.0" top="10.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets top="20.0" />
+                           </padding>
+                        </Label>
+                                <Button fx:id="btnNoroVirus" mnemonicParsing="false" prefHeight="105.0" prefWidth="427.0" text="NoroVirus">
                                     <font>
-                                        <Font size="32.0" />
+                                        <Font size="22.0" />
                                     </font>
                                     <VBox.margin>
-                                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                        <Insets left="30.0" top="50.0" />
                                     </VBox.margin>
                                 </Button>
+                        <Button fx:id="btnPolioVirus" mnemonicParsing="false" onAction="#btnPolioVirusOnPressed" prefHeight="109.0" prefWidth="428.0" text="PolioVirus">
+                           <VBox.margin>
+                              <Insets left="30.0" top="30.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnRhinoVirus" mnemonicParsing="false" prefHeight="104.0" prefWidth="429.0" text="RhinoVirus">
+                           <VBox.margin>
+                              <Insets left="30.0" top="30.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Button>
                             </children>
                         </VBox>
                     </items>
