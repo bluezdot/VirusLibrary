@@ -43,6 +43,7 @@ public class InfectingController implements Initializable {
         cellPane.setTranslateY(200);
 
         rootVirus.getChildren().clear();
+        virus.setImage(virus.getOverviewImage());
         virus.setVisible(true);
         virus.setFitWidth(70);
         virus.setPreserveRatio(true);
@@ -140,7 +141,7 @@ public class InfectingController implements Initializable {
         cell.setComponentsSize(130, 70, 100);
         sPane.getChildren().add(cell);
         virus.attack(cell);
-        int max = 600;
+        int max = 400;
         int min = 0;
         sPane.setTranslateX(((Math.random() * (max - min)) + min));
         sPane.setTranslateY(((Math.random() * (max - min)) + min));
