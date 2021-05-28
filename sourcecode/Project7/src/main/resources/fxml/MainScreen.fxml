@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="Menu">
+                    <items>
+                        <MenuItem fx:id="itemUsage" mnemonicParsing="false" onAction="#itemUsageOnPressed" text="Usage" />
+                        <MenuItem fx:id="itemAim" mnemonicParsing="false" onAction="#itemAimOnPressed" text="Aplication aim" />
+                  <MenuItem fx:id="itemProblem" mnemonicParsing="false" onAction="#itemProblemOnPressed" text="Problem" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <center>
+        <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <top>
+                <Label text="CHOOSE VIRUS TYPE" textFill="#b91c1c" BorderPane.alignment="CENTER">
+                    <font>
+                        <Font size="43.0" />
+                    </font>
+                    <BorderPane.margin>
+                        <Insets top="10.0" />
+                    </BorderPane.margin>
+                </Label>
+            </top>
+            <center>
+                <SplitPane dividerPositions="0.5" prefHeight="625.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+                    <items>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                            <children>
+                                <Button fx:id="btnWithEnvelope" mnemonicParsing="false" onAction="#btnWithEnvelopeOnPressed" prefHeight="646.0" prefWidth="478.0" text="Virus with lipid envelope">
+                                    <font>
+                                        <Font size="32.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                    </VBox.margin>
+                                </Button>
+                            </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                            <children>
+                                <Button fx:id="btnWithoutEnvelope" mnemonicParsing="false" onAction="#btnWithoutEnvelopeOnPressed" prefHeight="644.0" prefWidth="478.0" text="Virus without lipid envelope">
+                                    <font>
+                                        <Font size="32.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                    </VBox.margin>
+                                </Button>
+                            </children>
+                        </VBox>
+                    </items>
+                    <BorderPane.margin>
+                        <Insets left="20.0" right="20.0" top="20.0" />
+                    </BorderPane.margin>
+                </SplitPane>
+            </center>
+        </BorderPane>
+    </center>
+</BorderPane>

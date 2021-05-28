@@ -21,13 +21,13 @@ public class MainScreen extends Application {
         // window = primaryStage;
 
         try {
-            FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("/sample/MainScreen.fxml"));
+            FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("/fxml/MainScreen.fxml"));
             MainScreenController controller = new MainScreenController();
             fxmlloader.setController(controller);
             Parent root = fxmlloader.load();
             Scene scene = new Scene(root);
 
-            primaryStage.setTitle("VIRUS INVESTIGATION");
+            primaryStage.setTitle("VIRUS MAIN MENU");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (Exception e) {
