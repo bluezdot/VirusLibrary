@@ -26,7 +26,7 @@ public class InfectingController implements Initializable {
 
     public InfectingController(Virus virus, Cell cell) {
         this.virus = virus;
-        this.cell = cell;
+        this.cell = new Cell(cell);
     }
 
     public InfectingController() {
@@ -49,7 +49,7 @@ public class InfectingController implements Initializable {
         virus.setPreserveRatio(true);
         rootVirus.getChildren().add(virus);
 
-        translateTransition = createTranslateTransitionFor(rootVirus, cell.getNucleus());
+        translateTransition = createTranslateTransitionFor(rootVirus, cell.getCenter());
 
         if (virus instanceof EnvelopeVirus) {
             envelopeAttack();
@@ -121,8 +121,8 @@ public class InfectingController implements Initializable {
 
                     }
 
-                    if (intersects(rootVirus, cell.getNucleus())) {
-                        translateTransition.stop();
+                    if (intersects(rootVirus, cell.getCenter())) {
+                        translateTransition.pause();
                         virus.setVisible(false);
                         root.getChildren().add(infectCell());
 
