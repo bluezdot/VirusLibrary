@@ -42,7 +42,7 @@ public class Nucleus extends CellComponent{
         Double width = this.getFitWidth();
         Canvas canvas = new Canvas(width, height);
         canvas.getGraphicsContext2D().drawImage(this.getInfectedImage(), 0, 0, width, height);
-        canvas.getGraphicsContext2D().drawImage(injectAN.getDetailImage(), width /4, height / 4, width /2, height / 2 );
+        canvas.getGraphicsContext2D().drawImage(injectAN.getDetailImage(), width / 2.2, height / 2.2, width /8, height / 8 );
         SnapshotParameters params = new SnapshotParameters();
         params.setFill(Color.TRANSPARENT);
         setImage(canvas.snapshot(params, null));
