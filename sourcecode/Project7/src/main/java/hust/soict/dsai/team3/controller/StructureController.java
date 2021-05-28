@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
@@ -17,6 +18,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.ResourceBundle;
@@ -45,6 +47,9 @@ public class StructureController implements Initializable {
 
     @FXML
     protected VBox center;
+
+    @FXML
+    protected Button btnReturn;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -95,6 +100,23 @@ public class StructureController implements Initializable {
             changeCenter.setText("Show Infecting Process");
             btnRepeatInfecting.setVisible(false);
         }
+    }
+
+    // Add return to virus select action
+    @FXML
+    void btnReturnOnPressed(ActionEvent event) throws IOException {
+
+        Stage primaryStage = (Stage) btnReturn.getScene().getWindow();
+        FXMLLoader fxmlloader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/MainScreen.fxml"));
+
+        MainScreenController controller = new MainScreenController();
+        fxmlloader.setController(controller);
+        Parent root = fxmlloader.load();
+        Scene scene = new Scene(root);
+
+        primaryStage.setTitle("VIRUS MAIN MENU");
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 
     @FXML

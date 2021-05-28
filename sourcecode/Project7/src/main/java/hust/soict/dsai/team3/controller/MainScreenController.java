@@ -44,6 +44,9 @@ public class MainScreenController {
     private Button btnHCV;
 
     @FXML
+    private Button btnHEV;
+
+    @FXML
     private Button btnPolioVirus;
 
     @FXML
@@ -68,7 +71,7 @@ public class MainScreenController {
     void itemAimOnPressed(ActionEvent event) {
         JFrame frame = new JFrame();
         JOptionPane.showMessageDialog(frame,
-                "Investigate many types of virus",
+                "Investigate structure of viruses and how they infect to cell",
                 "Aim",
                 JOptionPane.INFORMATION_MESSAGE);
     }
@@ -145,9 +148,41 @@ public class MainScreenController {
     }
 
     @FXML
-    void btnNoroVirusOnPressed(ActionEvent event) {
+    void btnNoroVirusOnPressed(ActionEvent event) throws IOException {
+        Stage primaryStage = (Stage) btnNoroVirus.getScene().getWindow();
+        Virus noro = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/NoroVirus/").getFile());
 
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/virus_structure.fxml"));
+        StructureController hover = new StructureController(noro);
+
+        loader.setController(hover);
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+
+        primaryStage.setTitle("Virus Structure");
+        primaryStage.setFullScreen(true);
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
+
+    @FXML
+    void btnHEVOnPressed(ActionEvent event) throws IOException {
+        Stage primaryStage = (Stage) btnHEV.getScene().getWindow();
+        Virus hev = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/HEV/").getFile());
+
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/virus_structure.fxml"));
+        StructureController hover = new StructureController(hev);
+
+        loader.setController(hover);
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+
+        primaryStage.setTitle("Virus Structure");
+        primaryStage.setFullScreen(true);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
 
     @FXML
     void btnPolioVirusOnPressed(ActionEvent event) throws IOException {
