@@ -20,10 +20,10 @@ public class StructureScreen extends Application {
     public void start(Stage primaryStage) throws Exception{
         Virus hiv = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/HIV/").getFile());
         Virus pvirus = new NonEnvelopeVirus(getClass().getClassLoader().getResource("virus/PolioVirus/").getFile());
-        Virus hcv = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/HCV/").getFile());
+        Virus hbv = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/HBV/").getFile());
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/virus_structure.fxml"));
 //        StructureController hover = new StructureController(hiv);
-        StructureController hover = new StructureController(pvirus);
+        StructureController hover = new StructureController(hbv);
 //        StructureController hover = new StructureController(hcv);
         hover.setStage(primaryStage);
         loader.setController(hover);
