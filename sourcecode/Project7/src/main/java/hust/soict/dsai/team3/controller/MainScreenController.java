@@ -10,9 +10,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -66,6 +71,17 @@ public class MainScreenController {
                 "Usage",
                 JOptionPane.INFORMATION_MESSAGE);
     }
+
+
+
+
+
+//    }
+//    public ImageView getImage(){
+//
+//        ImageView iview = new ImageView(image);
+//        return iview;
+//    }
 
     @FXML
     void itemAimOnPressed(ActionEvent event) {

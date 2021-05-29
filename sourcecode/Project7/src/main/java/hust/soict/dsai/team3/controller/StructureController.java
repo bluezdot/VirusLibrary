@@ -1,6 +1,7 @@
 package hust.soict.dsai.team3.controller;
 
 import hust.soict.dsai.team3.model.cell.Cell;
+import hust.soict.dsai.team3.model.virus.EnvelopeVirus;
 import hust.soict.dsai.team3.model.virus.Virus;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -181,11 +183,31 @@ public class StructureController implements Initializable {
 
     @FXML
     void itemUsageOnPressed(ActionEvent event) {
-        JFrame frame = new JFrame();
-        JOptionPane.showMessageDialog(frame,
-                "Updating",
-                "Usage",
-                JOptionPane.INFORMATION_MESSAGE);
+//        Stage primaryStage = (Stage) itemUsage.getScene().getWindow();
+//        BorderPane root = new BorderPane();
+//        ScrollPane scrollPane = new ScrollPane();
+//        root.setCenter(scrollPane);
+//
+//        Scene scene = new Scene(root, 800, 500);
+//
+//
+//        Virus hcv = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/HCV/").getFile());
+//
+//        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/virus_structure.fxml"));
+//        StructureController hover = new StructureController(hcv);
+//
+//        loader.setController(hover);
+//        Parent root = loader.load();
+//        Scene scene = new Scene(root);
+//
+//        primaryStage.setTitle("Virus Structure");
+//        primaryStage.setFullScreen(true);
+//        primaryStage.setScene(scene);
+//        primaryStage.show();
+//        JOptionPane.showMessageDialog(frame,
+//                "Updating",
+//                "Usage",
+//                JOptionPane.INFORMATION_MESSAGE);
     }
 
     @FXML
