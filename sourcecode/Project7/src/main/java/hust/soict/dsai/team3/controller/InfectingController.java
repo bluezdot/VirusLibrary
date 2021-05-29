@@ -141,10 +141,11 @@ public class InfectingController implements Initializable {
         cell.setComponentsSize(300,300,300);
         sPane.getChildren().add(cell);
         virus.attack(cell);
-        int max = 400;
+        int maxX = 400;
+        int maxY = 300;
         int min = 0;
-        sPane.setTranslateX(((Math.random() * (max - min)) + min));
-        sPane.setTranslateY(((Math.random() * (max - min)) + min));
+        sPane.setTranslateX(((Math.random() * (maxX - min)) + min));
+        sPane.setTranslateY(((Math.random() * (maxY - min)) + min));
         return sPane;
     }
 }

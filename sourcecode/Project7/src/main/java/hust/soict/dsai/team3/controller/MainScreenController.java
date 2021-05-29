@@ -150,7 +150,7 @@ public class MainScreenController {
     @FXML
     void btnNoroVirusOnPressed(ActionEvent event) throws IOException {
         Stage primaryStage = (Stage) btnNoroVirus.getScene().getWindow();
-        Virus noro = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/NoroVirus/").getFile());
+        Virus noro = new NonEnvelopeVirus(getClass().getClassLoader().getResource("virus/NoroVirus/").getFile());
 
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/virus_structure.fxml"));
         StructureController hover = new StructureController(noro);
@@ -168,7 +168,7 @@ public class MainScreenController {
     @FXML
     void btnHEVOnPressed(ActionEvent event) throws IOException {
         Stage primaryStage = (Stage) btnHEV.getScene().getWindow();
-        Virus hev = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/HEV/").getFile());
+        Virus hev = new NonEnvelopeVirus(getClass().getClassLoader().getResource("virus/HEV/").getFile());
 
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/virus_structure.fxml"));
         StructureController hover = new StructureController(hev);
@@ -187,7 +187,7 @@ public class MainScreenController {
     @FXML
     void btnPolioVirusOnPressed(ActionEvent event) throws IOException {
         Stage primaryStage = (Stage) btnPolioVirus.getScene().getWindow();
-        Virus polio = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/PolioVirus/").getFile());
+        Virus polio = new NonEnvelopeVirus(getClass().getClassLoader().getResource("virus/PolioVirus/").getFile());
 
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/virus_structure.fxml"));
         StructureController hover = new StructureController(polio);

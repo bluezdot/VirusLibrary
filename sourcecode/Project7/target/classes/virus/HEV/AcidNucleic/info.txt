@@ -1,0 +1,4 @@
+The genome of HIV is composed of two identical strands of RNA, each about 9700 nucleotides long.
+    The genome encodes the information needed to synthesize all of the viral proteins.
+    Portions of the genome also form hairpin loops that interact with the regulatory proteins.
+    Covered in spikes of the ‘glycoproteins’ gp120 and gp41, which allow HIV to lock onto the CD4 receptor on CD4 T cells and enter the cell.
