@@ -1,6 +1,7 @@
 package hust.soict.dsai.team3.controller;
 
 import hust.soict.dsai.team3.model.cell.Cell;
+import hust.soict.dsai.team3.model.virus.EnvelopeVirus;
 import hust.soict.dsai.team3.model.virus.Virus;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,6 +12,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -18,6 +21,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
@@ -50,6 +54,15 @@ public class StructureController implements Initializable {
 
     @FXML
     protected Button btnReturn;
+
+    @FXML
+    private MenuItem itemAim;
+
+    @FXML
+    private MenuItem itemProblem;
+
+    @FXML
+    private MenuItem itemUsage;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -164,5 +177,56 @@ public class StructureController implements Initializable {
         node.hoverProperty().addListener((javafx.beans.value.ChangeListener<? super Boolean>) (observable, oldValue, newValue) -> {
             setHoverPic(newValue, component);
         });
+    }
+
+    // Handle main menu items
+
+    @FXML
+    void itemUsageOnPressed(ActionEvent event) {
+//        Stage primaryStage = (Stage) itemUsage.getScene().getWindow();
+//        BorderPane root = new BorderPane();
+//        ScrollPane scrollPane = new ScrollPane();
+//        root.setCenter(scrollPane);
+//
+//        Scene scene = new Scene(root, 800, 500);
+//
+//
+//        Virus hcv = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/HCV/").getFile());
+//
+//        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/virus_structure.fxml"));
+//        StructureController hover = new StructureController(hcv);
+//
+//        loader.setController(hover);
+//        Parent root = loader.load();
+//        Scene scene = new Scene(root);
+//
+//        primaryStage.setTitle("Virus Structure");
+//        primaryStage.setFullScreen(true);
+//        primaryStage.setScene(scene);
+//        primaryStage.show();
+//        JOptionPane.showMessageDialog(frame,
+//                "Updating",
+//                "Usage",
+//                JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    @FXML
+    void itemAimOnPressed(ActionEvent event) {
+        JFrame frame = new JFrame();
+        JOptionPane.showMessageDialog(frame,
+                "Investigate structure of viruses and how they infect to cell",
+                "Aim",
+                JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    @FXML
+    void itemProblemOnPressed(ActionEvent event){
+        JFrame frame = new JFrame();
+        JOptionPane.showMessageDialog(frame,
+                "COVID-19 has been spreading all over the world and there is the need of understanding \n" +
+                        "different type of viruses, as well as the way they infect in order to have the basic knowledge to \n" +
+                        "prevent them",
+                "Problem",
+                JOptionPane.INFORMATION_MESSAGE);
     }
 }

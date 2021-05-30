@@ -26,9 +26,11 @@ public class MainScreen extends Application {
             Parent root = fxmlloader.load();
             Scene scene = new Scene(root);
 
+
             primaryStage.setTitle("VIRUS MAIN MENU");
             primaryStage.setScene(scene);
             primaryStage.show();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
