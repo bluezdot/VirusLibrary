@@ -1,0 +1,3 @@
+HIV protease is essential for the maturation of HIV particles. 
+The proteins in HIV are built as long polyproteins, which then must be cleaved into the proper functional pieces by HIV protease. 
+Protease inhibitors are widely used as anti-HIV drugs, often in combination with drugs that block reverse transcriptase and integrase.
