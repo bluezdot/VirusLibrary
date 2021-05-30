@@ -1,0 +1,2 @@
+The ORF2 capsid protein, HEV-CP, contains a total of 660 amino acid residues. 
+At the HEV-CP N terminus is a signal peptide followed by an arginine-rich domain that potentially play a role in viral RNA encapsidation during assembly

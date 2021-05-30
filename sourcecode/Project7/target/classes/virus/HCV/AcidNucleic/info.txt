@@ -1,0 +1,7 @@
+Hepatitis C virus has a positive sense single-stranded RNA genome. 
+The genome consists of a single open reading frame that is 9,600 nucleotide bases long.
+[14] This single open reading frame is translated to produce a single protein product, 
+which is then further processed to produce smaller active proteins. 
+This is why on publicly available databases, such as the European Bioinformatics Institute,
+ the viral proteome only consists of 2 proteins.
+

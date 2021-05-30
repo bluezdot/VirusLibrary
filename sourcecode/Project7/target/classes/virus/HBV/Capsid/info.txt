@@ -1,0 +1,3 @@
+HBcAg (Hepatitis B core antigen) is the main structural protein of HBV icosahedral nucleocapsid and it has function in replication of the virus.
+[29] Capsid formation is the main factor for infection of the cell.
+[30] HBcAg contributes to HBV clearance in vivo, but it is unknown whether HBcAg has to be in the capsid form to contribute to viral clearance.

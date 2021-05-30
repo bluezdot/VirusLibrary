@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="Menu">
+                    <items>
+                        <MenuItem fx:id="itemUsage" mnemonicParsing="false" onAction="#itemUsageOnPressed" text="Usage" />
+                        <MenuItem fx:id="itemAim" mnemonicParsing="false" onAction="#itemAimOnPressed" text="Aplication aim" />
+                  <MenuItem fx:id="itemProblem" mnemonicParsing="false" onAction="#itemProblemOnPressed" text="Problem" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <center>
+        <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <top>
+                <Label text="CHOOSE VIRUS TYPE" textFill="#b91c1c" BorderPane.alignment="CENTER">
+                    <font>
+                        <Font size="43.0" />
+                    </font>
+                    <BorderPane.margin>
+                        <Insets top="10.0" />
+                    </BorderPane.margin>
+                </Label>
+            </top>
+            <center>
+                <SplitPane dividerPositions="0.5" prefHeight="558.0" prefWidth="984.0" BorderPane.alignment="CENTER">
+                    <items>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                            <children>
+                        <Label text="Virus with lipid envelope" textAlignment="CENTER" textFill="#0f5dc3">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="45.0" top="20.0" />
+                           </VBox.margin>
+                        </Label>
+                                <Button fx:id="btnHIV" mnemonicParsing="false" onAction="#btnHIVOnPressed" prefHeight="106.0" prefWidth="420.0" text="Human Immunodeficiency Virus (HIV)">
+                                    <font>
+                                        <Font size="22.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets left="30.0" top="50.0" />
+                                    </VBox.margin>
+                                </Button>
+                        <Button fx:id="btnHBV" mnemonicParsing="false" onAction="#btnHBVOnPressed" prefHeight="107.0" prefWidth="418.0" text="Hepacivirus B Virus (HBV)">
+                           <VBox.margin>
+                              <Insets left="30.0" top="30.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnHCV" mnemonicParsing="false" onAction="#btnHCVOnPressed" prefHeight="104.0" prefWidth="418.0" text="Hepacivirus C Virus (HCV)">
+                           <VBox.margin>
+                              <Insets left="30.0" top="30.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Button>
+                            </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                            <children>
+                        <Label text="Virus without lipid envelope" textFill="#0f5dc3">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="28.0" top="10.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets top="20.0" />
+                           </padding>
+                        </Label>
+                                <Button fx:id="btnNoroVirus" mnemonicParsing="false" onAction="#btnNoroVirusOnPressed" prefHeight="105.0" prefWidth="427.0" text="NoroVirus">
+                                    <font>
+                                        <Font size="22.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets left="30.0" top="50.0" />
+                                    </VBox.margin>
+                                </Button>
+                        <Button fx:id="btnPolioVirus" mnemonicParsing="false" onAction="#btnPolioVirusOnPressed" prefHeight="109.0" prefWidth="428.0" text="PolioVirus">
+                           <VBox.margin>
+                              <Insets left="30.0" top="30.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnHEV" mnemonicParsing="false" onAction="#btnHEVOnPressed" prefHeight="104.0" prefWidth="429.0" text="HEV">
+                           <VBox.margin>
+                              <Insets left="30.0" top="30.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Button>
+                            </children>
+                        </VBox>
+                    </items>
+                    <BorderPane.margin>
+                        <Insets left="20.0" right="20.0" top="20.0" />
+                    </BorderPane.margin>
+                </SplitPane>
+            </center>
+        </BorderPane>
+    </center>
+</BorderPane>

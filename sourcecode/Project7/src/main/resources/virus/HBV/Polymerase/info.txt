@@ -1,0 +1,5 @@
+Hepatitis B virus DNA polymerase is incorporated into the nucleocapsid along with the pre-genomic RNA (pgRNA). 
+	Inside the capsid, the pgRNA undergoes reverse transcription, making the (-) DNA strand.
+	 At the same time, most of the RNA template is degraded by the RNase activity of the polymerase.
+	 This is followed by (+) DNA strand synthesis, and the polymerase ends up covalently bound to the (-) DNA strand.
+	[32][33] The polymerase is discarded after the virion infects a new cell.
