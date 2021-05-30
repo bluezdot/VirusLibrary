@@ -70,7 +70,7 @@ public class StructureController implements Initializable {
         center.getChildren().add(primaryView);
         hoverView = new ImageView();
 
-        for (String component : virus.getComponents().keySet()){
+        for (String component : virus.getComponents().keySet()) {
             btnComponents.put(component, new Button(component));
             setHoverProperty(btnComponents.get(component), component);
             btnComponents.get(component).setOnAction(e -> {
@@ -80,7 +80,7 @@ public class StructureController implements Initializable {
 
         GridPane left = new GridPane();
         int start = 0;
-        for (Button button : btnComponents.values()){
+        for (Button button : btnComponents.values()) {
             left.add(button, 0, start++);
         }
         left.setVgap(10);
@@ -94,7 +94,7 @@ public class StructureController implements Initializable {
     }
 
     @FXML
-    void showInfectingProcess(ActionEvent event) throws Exception{
+    void showInfectingProcess(ActionEvent event) throws Exception {
 
         if (changeCenter.getText().contains("Infecting")) {
             Cell cell = new Cell(getClass().getClassLoader().getResource("cell/Cell").getFile());
@@ -106,8 +106,7 @@ public class StructureController implements Initializable {
             borderPane.getLeft().setVisible(false);
             changeCenter.setText("Return to Virus Structure");
             btnRepeatInfecting.setVisible(true);
-        }
-        else {
+        } else {
             borderPane.setCenter(center);
             borderPane.getLeft().setVisible(true);
             changeCenter.setText("Show Infecting Process");
@@ -133,7 +132,7 @@ public class StructureController implements Initializable {
     }
 
     @FXML
-    protected  void repeatInfecting(ActionEvent event) throws Exception{
+    protected void repeatInfecting(ActionEvent event) throws Exception {
         Cell cell = new Cell(getClass().getClassLoader().getResource("cell/Cell").getFile());
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/infectingOld.fxml"));
         InfectingController infectingController = new InfectingController(virus, cell);
@@ -157,7 +156,7 @@ public class StructureController implements Initializable {
         }
     }
 
-    protected void setCenterPic(ActionEvent event, String component){
+    protected void setCenterPic(ActionEvent event, String component) {
         if (!presentMode) {
             ((Button) event.getSource()).setText("Return to Overview");
             presentMode = true;
@@ -173,7 +172,7 @@ public class StructureController implements Initializable {
         }
     }
 
-    protected void setHoverProperty(Node node, String component){
+    protected void setHoverProperty(Node node, String component) {
         node.hoverProperty().addListener((javafx.beans.value.ChangeListener<? super Boolean>) (observable, oldValue, newValue) -> {
             setHoverPic(newValue, component);
         });
@@ -220,7 +219,7 @@ public class StructureController implements Initializable {
     }
 
     @FXML
-    void itemProblemOnPressed(ActionEvent event){
+    void itemProblemOnPressed(ActionEvent event) {
         JFrame frame = new JFrame();
         JOptionPane.showMessageDialog(frame,
                 "COVID-19 has been spreading all over the world and there is the need of understanding \n" +

@@ -10,9 +10,11 @@ public class CellComponent extends ImageView {
     protected Image infected;
     protected String name;
     protected Boolean isInfected = false;
-    public CellComponent(){}
 
-    public CellComponent(String urlNormal, String urlInfected, String name){
+    public CellComponent() {
+    }
+
+    public CellComponent(String urlNormal, String urlInfected, String name) {
         normal = new Image(urlNormal);
         infected = new Image(urlInfected);
         this.name = name;
@@ -21,23 +23,22 @@ public class CellComponent extends ImageView {
     }
 
 
-    public static CellComponent parse(File folder) throws Exception{
+    public static CellComponent parse(File folder) throws Exception {
         String normal = "";
         String infected = "";
         File[] files = folder.listFiles();
-        for (File file : files){
+        for (File file : files) {
             if (file.isFile())
 
-                if (file.getName().equals("normal.png")){
+                if (file.getName().equals("normal.png")) {
                     normal = file.toURI().toURL().toExternalForm();
-                }
-                else if (file.getName().equals("infected.png")){
+                } else if (file.getName().equals("infected.png")) {
                     infected = file.toURI().toURL().toExternalForm();
                 }
 
 
         }
-        return new CellComponent(normal,infected, folder.getName());
+        return new CellComponent(normal, infected, folder.getName());
     }
 
     public Image getNormalImage() {
@@ -50,14 +51,14 @@ public class CellComponent extends ImageView {
 
     public void setInfected(Boolean blinfected) {
         isInfected = blinfected;
-        if (isInfected){
+        if (isInfected) {
             setImage(infected);
-        }else{
+        } else {
             setImage(normal);
         }
     }
 
-    public void setSize(double x1){
+    public void setSize(double x1) {
         this.setFitWidth(x1);
         this.setPreserveRatio(true);
     }

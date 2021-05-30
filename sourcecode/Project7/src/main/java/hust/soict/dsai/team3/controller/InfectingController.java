@@ -34,8 +34,7 @@ public class InfectingController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        cell.setComponentsSize(300,300,300);
-
+        cell.setComponentsSize(300, 300, 300);
 
         cellPane.getChildren().clear();
         cellPane.getChildren().add(cell);
@@ -91,8 +90,6 @@ public class InfectingController implements Initializable {
     }
 
     void envelopeAttack() {
-
-
         Timeline timeline = new Timeline(new KeyFrame(Duration.millis(400),
                 (evt) -> {
                     translateTransition.play();
@@ -103,7 +100,6 @@ public class InfectingController implements Initializable {
                         translateTransition.pause();
                         cell.addInfectVirus(virus);
                     }
-
                 })
         );
         timeline.setCycleCount(20);  //Animation.INDEFINITE
@@ -111,24 +107,17 @@ public class InfectingController implements Initializable {
     }
 
     void nonEnvelopeAttack() {
-
-
         Timeline timeline = new Timeline(new KeyFrame(Duration.millis(400),
                 (evt) -> {
                     translateTransition.play();
                     if (intersects(rootVirus, cell.getMembrane())) {
                         virus.attack(cell);
-
                     }
-
                     if (intersects(rootVirus, cell.getCenter())) {
                         translateTransition.pause();
                         virus.setVisible(false);
                         root.getChildren().add(infectCell());
-
-
                     }
-
                 })
         );
         timeline.setCycleCount(20);  //Animation.INDEFINITE
@@ -138,7 +127,7 @@ public class InfectingController implements Initializable {
     StackPane infectCell() {
         StackPane sPane = new StackPane();
         Cell cell = new Cell(this.cell);
-        cell.setComponentsSize(300,300,300);
+        cell.setComponentsSize(300, 300, 300);
         sPane.getChildren().add(cell);
         virus.attack(cell);
         int maxX = 400;

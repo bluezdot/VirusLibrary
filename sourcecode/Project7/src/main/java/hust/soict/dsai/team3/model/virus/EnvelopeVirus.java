@@ -9,19 +9,20 @@ public class EnvelopeVirus extends Virus implements AttackCell {
 
     public static final String ENVELOPE = "Envelope";
 
-    public EnvelopeVirus(String dirPath){
+    public EnvelopeVirus(String dirPath) {
         super(dirPath);
     }
-    public EnvelopeVirus(EnvelopeVirus eVirus){
+
+    public EnvelopeVirus(EnvelopeVirus eVirus) {
         super(eVirus);
     }
 
-    protected void readEnvelope(String dirPath) throws Exception{
+    protected void readEnvelope(String dirPath) throws Exception {
         File folder = new File(dirPath);
         File[] listOfFiles = folder.listFiles();
 
-        for (File file : listOfFiles){
-            if (file.isDirectory() && file.getName().equals(ENVELOPE)){
+        for (File file : listOfFiles) {
+            if (file.isDirectory() && file.getName().equals(ENVELOPE)) {
                 virusComponentHashMap.put(file.getName(), Envelope.parse(file));
                 break;
             }

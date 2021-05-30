@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class Cell extends StackPane{
+public class Cell extends StackPane {
     public static final String NUCLEUS = "Nucleus";
     public static final String MEMBRANE = "Membrane";
     public static final String LAYER = "Layer";
@@ -25,34 +25,34 @@ public class Cell extends StackPane{
     private List<Virus> infectVirus = new ArrayList<>();
     private Boolean isInfected = false;
 
-    public Cell(String dirPath){
+    public Cell(String dirPath) {
         this.dirPath = dirPath;
         try {
             readData(dirPath);
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
         this.prefHeight(150);
         this.prefWidth(200);
-        for (CellComponent component : cellComponentHashMap.values()){
+        for (CellComponent component : cellComponentHashMap.values()) {
             this.getChildren().add(component);
         }
         getLayer().toFront();
         getNucleus().toFront();
     }
 
-    public Cell(Cell that){
+    public Cell(Cell that) {
         this(that.dirPath);
     }
 
-    protected void readData(String dirPath) throws Exception{
+    protected void readData(String dirPath) throws Exception {
         File folder = new File(dirPath);
         File[] listOfFiles = folder.listFiles();
 
-        for (File file : listOfFiles){
-            if (file.isDirectory()){
-                switch (file.getName()){
+        for (File file : listOfFiles) {
+            if (file.isDirectory()) {
+                switch (file.getName()) {
                     case NUCLEUS:
                         cellComponentHashMap.put(file.getName(), Nucleus.parse(file));
                         break;
@@ -66,8 +66,7 @@ public class Cell extends StackPane{
                         cellComponentHashMap.put(file.getName(), CellComponent.parse(file));
                 }
 
-            }
-            else {
+            } else {
                 this.overview = new Image(file.toURI().toURL().toExternalForm());
             }
         }
@@ -85,16 +84,20 @@ public class Cell extends StackPane{
         return (Membrane) cellComponentHashMap.get(MEMBRANE);
     }
 
-    public CellComponent getCenter() { return cellComponentHashMap.get("Center");};
+    public CellComponent getCenter() {
+        return cellComponentHashMap.get("Center");
+    }
+
+    ;
 
     public void setInfected(Boolean infected) {
         isInfected = infected;
-        for (CellComponent component : cellComponentHashMap.values()){
+        for (CellComponent component : cellComponentHashMap.values()) {
             component.setInfected(infected);
         }
     }
 
-    public void addInfectVirus(Virus virus){
+    public void addInfectVirus(Virus virus) {
         Virus newVirus;
         if (virus instanceof EnvelopeVirus) {
             newVirus = new EnvelopeVirus((EnvelopeVirus) virus);
@@ -111,7 +114,7 @@ public class Cell extends StackPane{
         newVirus.setTranslateY(((Math.random() * (max - min)) + min));
     }
 
-    public void setComponentsSize(double x1, double x2, double x3){
+    public void setComponentsSize(double x1, double x2, double x3) {
         this.getNucleus().setSize(x1);
         this.getLayer().setSize(x2);
         this.getMembrane().setSize(x3);

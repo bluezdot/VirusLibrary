@@ -43,12 +43,11 @@ public class MainScreen extends Application {
                     "Do you want to exit the program ?",
                     "Exit application",
                     JOptionPane.YES_NO_OPTION);
-            if(n == 0){
+            if (n == 0) {
                 // close application when user confirm "Yes"
                 System.out.println(n);
                 System.exit(0);
-            }
-            else{
+            } else {
                 // cancel the application exit when user click "No"
                 event.consume();
             }

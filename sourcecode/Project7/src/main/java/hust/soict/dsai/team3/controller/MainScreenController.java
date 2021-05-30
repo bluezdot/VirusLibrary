@@ -6,9 +6,11 @@ import hust.soict.dsai.team3.model.virus.Virus;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
@@ -67,28 +69,47 @@ public class MainScreenController {
     // Handle Menu: problem, usage and aim button on pressed
 
     @FXML
-    void itemUsageOnPressed(ActionEvent event) {
+    void itemUsageOnPressed(ActionEvent event) throws IOException {
         ScrollPane scrollPane = new ScrollPane();
         VBox panel = new VBox();
+        panel.setAlignment(Pos.CENTER);
+        Stage primaryStage = (Stage) btnHIV.getScene().getWindow();
+        panel.getChildren().addAll(getTitle("Step 1"), getImage("usage/one.png"), getTitle("Step 1"), getImage("usage/two.png"), getTitle("Step 2"), getImage("usage/three.png"), getTitle("Step 2"), getImage("usage/five.png"), getTitle("Step 3"), getImage("usage/four.png"));
+        Button returnButton = new Button("Return to main");
+        returnButton.setOnAction(e -> {
+            FXMLLoader fxmlloader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/MainScreen.fxml"));
 
-        panel.getChildren().addAll(getTitle("Step 1"),getImage("usage/one.png"),getTitle("Step 1"), getImage("usage/two.png"),getTitle("Step 2"), getImage("usage/three.png"),getTitle("Step 2"),getImage("usage/five.png"),getTitle("Step 3"), getImage("usage/four.png"));
+            MainScreenController controller = new MainScreenController();
+            fxmlloader.setController(controller);
+            Parent root = null;
+            try {
+                root = fxmlloader.load();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+            Scene scene = new Scene(root);
 
+            primaryStage.setTitle("VIRUS MAIN MENU");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        });
+        panel.getChildren().add(returnButton);
         scrollPane.setContent(panel);
         scrollPane.setVisible(true);
-        Stage primaryStage = (Stage) btnHIV.getScene().getWindow();
+
 
         primaryStage.setTitle("Usage");
         primaryStage.setScene(new Scene(scrollPane));
         primaryStage.show();
     }
 
-    public ImageView getImage(String file){
+    public ImageView getImage(String file) {
         Image image = new Image(getClass().getClassLoader().getResource(file).toExternalForm());
         ImageView iview = new ImageView(image);
         return iview;
     }
 
-    public Text getTitle(String title){
+    public Text getTitle(String title) {
         Text text = new Text(title);
         text.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
         text.setFill(Color.RED);
@@ -105,12 +126,12 @@ public class MainScreenController {
     }
 
     @FXML
-    void itemProblemOnPressed(ActionEvent event){
+    void itemProblemOnPressed(ActionEvent event) {
         JFrame frame = new JFrame();
         JOptionPane.showMessageDialog(frame,
                 "COVID-19 has been spreading all over the world and there is the need of understanding \n" +
-                "different type of viruses, as well as the way they infect in order to have the basic knowledge to \n" +
-                "prevent them",
+                        "different type of viruses, as well as the way they infect in order to have the basic knowledge to \n" +
+                        "prevent them",
                 "Problem",
                 JOptionPane.INFORMATION_MESSAGE);
     }
@@ -274,7 +295,6 @@ public class MainScreenController {
 //         primaryStage.setScene(scene);
 //         primaryStage.show();
 //     }
-
 
 
     @FXML

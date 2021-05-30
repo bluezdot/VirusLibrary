@@ -4,11 +4,11 @@ import hust.soict.dsai.team3.model.cell.Cell;
 import hust.soict.dsai.team3.model.virus.structure.AcidNucleic;
 
 public class NonEnvelopeVirus extends Virus implements AttackCell {
-    public NonEnvelopeVirus(String dirPath){
+    public NonEnvelopeVirus(String dirPath) {
         super(dirPath);
     }
 
-    public NonEnvelopeVirus(NonEnvelopeVirus eVirus){
+    public NonEnvelopeVirus(NonEnvelopeVirus eVirus) {
         this(eVirus.dirPath);
     }
 
