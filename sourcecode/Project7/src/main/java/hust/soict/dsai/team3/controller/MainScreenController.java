@@ -71,13 +71,13 @@ public class MainScreenController {
         ScrollPane scrollPane = new ScrollPane();
         VBox panel = new VBox();
 
-        panel.getChildren().addAll(getTitle("Step 1"),getImage("usage/one.png"),getTitle("Step 1"), getImage("usage/two.png"),getTitle("Step 2"), getImage("usage/three.png"),getTitle("Step 3"), getImage("usage/four.png"));
+        panel.getChildren().addAll(getTitle("Step 1"),getImage("usage/one.png"),getTitle("Step 1"), getImage("usage/two.png"),getTitle("Step 2"), getImage("usage/three.png"),getTitle("Step 2"),getImage("usage/five.png"),getTitle("Step 3"), getImage("usage/four.png"));
 
         scrollPane.setContent(panel);
         scrollPane.setVisible(true);
         Stage primaryStage = (Stage) btnHIV.getScene().getWindow();
 
-        primaryStage.setTitle("usage");
+        primaryStage.setTitle("Usage");
         primaryStage.setScene(new Scene(scrollPane));
         primaryStage.show();
     }
