@@ -1,0 +1,3 @@
+E2 is a viral structural protein found in the hepatitis C virus.
+[1][2] It is present on the viral envelope and functions as a host receptor binding protein, mediating entry into host cells.
+ It is a key target for the design of entry inhibitors and vaccine immunogens.[3]

@@ -1,5 +1,3 @@
-The outer coat of HIV, made up of two layers of lipids (fatty molecules).
-    HIV uses protein "spikes" embedded in its envelope to enter host cells.
-    Envelope proteins gp120 and gp41 bind to receptors on the surface of cells that HIV infects, and then penetrate the surface to infect it with the viral RNA.
-    The spikes formed by these proteins are highly decorated with carbohydrates, making them difficult to recognize by antibodies.
-    PDB entry 4nco includes SU and the portion of TM that is outside the membrane.
+HBeAg (Hepatitis B envelope antigen) can be found between the icosahedral nucleocapsid core and the lipid envelope, 
+	but is considered "nonparticulate" and is secreted and accumulates in serum. 
+	HBeAg and HBcAg are made from the same reading frame.[34]

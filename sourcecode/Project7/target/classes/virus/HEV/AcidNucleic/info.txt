@@ -1,4 +1,2 @@
-The genome of HIV is composed of two identical strands of RNA, each about 9700 nucleotides long.
-    The genome encodes the information needed to synthesize all of the viral proteins.
-    Portions of the genome also form hairpin loops that interact with the regulatory proteins.
-    Covered in spikes of the ‘glycoproteins’ gp120 and gp41, which allow HIV to lock onto the CD4 receptor on CD4 T cells and enter the cell.
+Hepatitis E virus (HEV) RNA has been detected in the stool and serum of patients with HEV infection and experimentally infected nonhuman primates. 
+However, dynamics of HEV levels in the stool and serum during clinical and subclinical infections have not been determined.

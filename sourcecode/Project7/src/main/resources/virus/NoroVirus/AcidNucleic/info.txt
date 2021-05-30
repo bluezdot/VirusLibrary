@@ -1,5 +1,3 @@
-Capsid protein forms a cone-shaped coat around the viral RNA, delivering it into the cell during infection. It forms stable hexamers, which then assemble like tiles to form geodesic capsids.
-    The capsid protein is able to form hexamers and pentamers by shifting slightly in structure.
-    This is an example of the principle of "quasiequivalence", first proposed by Caspar and Klug in 1962.
-    Quasiequivalence is the way that many viruses build capsids that are much larger than is possible with perfect symmetry, but that still only use a single type of protein chain.
-    In the HIV capsid, the interactions between the many subunits are similar, but are deformed slightly to accommodate the different shapes of the cone-shaped portion and the round caps.
+They are a group of non-enveloped, single-stranded RNA viruses that primarily cause acute gastroenteritis 
+	(inflammation of the stomach and/or intestines). 
+	Noroviruses were previously called Norwalk or Norwalk-like viruses.

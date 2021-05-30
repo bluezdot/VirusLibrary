@@ -1,0 +1,4 @@
+The envelope of HCV is similar to very low-density lipoproteins (VLDL) and low-density lipoproteins (LDL).
+[9] Because of this similarity, the virus is thought to be able to associate with apolipoproteins. 
+It could surround itself with lipoproteins, partially covering up E1 and E2.
+ Recent research indicates that these apolipoproteins interact with scavenger receptor B1 (SR-B1).

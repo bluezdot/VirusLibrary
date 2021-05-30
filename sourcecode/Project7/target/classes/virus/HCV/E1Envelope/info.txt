@@ -1,0 +1,4 @@
+E1 is one of two subunits of the envelope glycoprotein[1] found in the hepatitis C virus.
+[2][3] The other subunit is E2. This protein is a type 1 transmembrane protein with a highly glycosylated 
+N-terminal ectodomain and a C-terminal hydrophobic anchor. 
+After being synthesized the E1 glycoproteins associates with the E2 glycoprotein as a noncovalent heterodimer.[4]
