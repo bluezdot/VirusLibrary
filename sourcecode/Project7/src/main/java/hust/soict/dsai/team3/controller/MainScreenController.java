@@ -11,13 +11,16 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import javax.swing.*;
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -65,23 +68,32 @@ public class MainScreenController {
 
     @FXML
     void itemUsageOnPressed(ActionEvent event) {
-        JFrame frame = new JFrame();
-        JOptionPane.showMessageDialog(frame,
-                "Updating",
-                "Usage",
-                JOptionPane.INFORMATION_MESSAGE);
+        ScrollPane scrollPane = new ScrollPane();
+        VBox panel = new VBox();
+
+        panel.getChildren().addAll(getTitle("Step 1"),getImage("usage/one.png"),getTitle("Step 1"), getImage("usage/two.png"),getTitle("Step 2"), getImage("usage/three.png"),getTitle("Step 3"), getImage("usage/four.png"));
+
+        scrollPane.setContent(panel);
+        scrollPane.setVisible(true);
+        Stage primaryStage = (Stage) btnHIV.getScene().getWindow();
+
+        primaryStage.setTitle("usage");
+        primaryStage.setScene(new Scene(scrollPane));
+        primaryStage.show();
     }
 
+    public ImageView getImage(String file){
+        Image image = new Image(getClass().getClassLoader().getResource(file).toExternalForm());
+        ImageView iview = new ImageView(image);
+        return iview;
+    }
 
-
-
-
-//    }
-//    public ImageView getImage(){
-//
-//        ImageView iview = new ImageView(image);
-//        return iview;
-//    }
+    public Text getTitle(String title){
+        Text text = new Text(title);
+        text.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
+        text.setFill(Color.RED);
+        return text;
+    }
 
     @FXML
     void itemAimOnPressed(ActionEvent event) {
