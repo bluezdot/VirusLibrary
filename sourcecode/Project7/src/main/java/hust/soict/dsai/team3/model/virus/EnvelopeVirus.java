@@ -32,6 +32,6 @@ public class EnvelopeVirus extends Virus implements AttackCell {
     @Override
     public void attack(Cell cell) {
         cell.setInfected(true);
-//        cell.addInfectVirus(this);
+        cell.addInfectVirus(this);
     }
 }
