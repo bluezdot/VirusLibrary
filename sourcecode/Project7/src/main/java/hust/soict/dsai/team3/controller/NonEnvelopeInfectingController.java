@@ -2,10 +2,7 @@ package hust.soict.dsai.team3.controller;
 
 import hust.soict.dsai.team3.model.cell.Cell;
 import hust.soict.dsai.team3.model.virus.Virus;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.scene.layout.StackPane;
-import javafx.util.Duration;
 
 public class NonEnvelopeInfectingController extends InfectingController{
 
@@ -28,23 +25,14 @@ public class NonEnvelopeInfectingController extends InfectingController{
         return sPane;
     }
 
+
     @Override
     protected void attack() {
-        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(400),
-                (evt) -> {
-                    translateTransition.play();
-                    if (intersects(rootVirus, cell.getMembrane())) {
-                        virus.attack(cell);
-                    }
-                    if (intersects(rootVirus, cell.getCenter())) {
-                        translateTransition.pause();
-                        virus.setVisible(false);
-                        root.getChildren().add(infectCell());
-                    }
-                })
-        );
-        timeline.setCycleCount(20);  //Animation.INDEFINITE
+        super.attack();
+        timeline.setOnFinished((actionEvent -> {
+            virus.setVisible(false);
+            root.getChildren().add(infectCell());
+        }));
         timeline.play();
     }
-
 }

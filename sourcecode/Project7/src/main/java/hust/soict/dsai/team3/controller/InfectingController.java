@@ -3,6 +3,8 @@ package hust.soict.dsai.team3.controller;
 
 import hust.soict.dsai.team3.model.cell.Cell;
 import hust.soict.dsai.team3.model.virus.Virus;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,9 +19,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public abstract class InfectingController implements Initializable {
-    TranslateTransition translateTransition;
+    protected TranslateTransition translateTransition;
     protected Virus virus;
     protected Cell cell;
+    protected Timeline timeline;
 
     public InfectingController(Virus virus, Cell cell) {
         this.virus = virus;
@@ -83,7 +86,21 @@ public abstract class InfectingController implements Initializable {
     }
 
 
-    protected void attack(){}
+    protected void attack(){
+        timeline = new Timeline(new KeyFrame(Duration.millis(400),
+                (evt) -> {
+                    translateTransition.play();
+                    if (intersects(rootVirus, cell.getLayer())) {
+                        virus.attack(cell);
+                    }
+                    if (intersects(rootVirus, cell.getCenter())) {
+                        translateTransition.pause();
+                    }
+                })
+        );
+        timeline.setCycleCount(15);  //Animation.INDEFINITE
+        timeline.play();
+    }
 
 
 }
