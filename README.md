@@ -2,6 +2,8 @@
 
 Virus Demonstration is a program built with JavaFx from Team03
 
+All src of the application in Folder Project7
+
 
 ## Assignments
 - [Phan Mạnh Tuấn](https://github.com/khongtrunght) builds main parts of model package (class Virus, Cell, ... ), contributes in some GUI parts.
