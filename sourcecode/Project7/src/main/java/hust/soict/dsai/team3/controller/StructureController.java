@@ -13,7 +13,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -99,7 +98,13 @@ public class StructureController implements Initializable {
         if (changeCenter.getText().contains("Infecting")) {
             Cell cell = new Cell(getClass().getClassLoader().getResource("cell/Cell").getFile());
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/infectingOld.fxml"));
-            InfectingController infectingController = new InfectingController(virus, cell);
+            InfectingController infectingController;
+            if (virus instanceof EnvelopeVirus) {
+                infectingController = new EnvelopeInfectingController(virus, cell);
+            }
+            else {
+                infectingController = new NonEnvelopeInfectingController(virus, cell);
+            }
             loader.setController(infectingController);
             Parent root = loader.load();
             borderPane.setCenter(root);
@@ -135,7 +140,13 @@ public class StructureController implements Initializable {
     protected void repeatInfecting(ActionEvent event) throws Exception {
         Cell cell = new Cell(getClass().getClassLoader().getResource("cell/Cell").getFile());
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/infectingOld.fxml"));
-        InfectingController infectingController = new InfectingController(virus, cell);
+        InfectingController infectingController;
+        if (virus instanceof EnvelopeVirus) {
+            infectingController = new EnvelopeInfectingController(virus, cell);
+        }
+        else {
+            infectingController = new NonEnvelopeInfectingController(virus, cell);
+        }
         loader.setController(infectingController);
         Parent root = loader.load();
         borderPane.setCenter(root);

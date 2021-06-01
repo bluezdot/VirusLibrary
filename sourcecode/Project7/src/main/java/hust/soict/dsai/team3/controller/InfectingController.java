@@ -2,10 +2,7 @@ package hust.soict.dsai.team3.controller;
 
 
 import hust.soict.dsai.team3.model.cell.Cell;
-import hust.soict.dsai.team3.model.virus.EnvelopeVirus;
 import hust.soict.dsai.team3.model.virus.Virus;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -19,10 +16,10 @@ import javafx.util.Duration;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class InfectingController implements Initializable {
+public abstract class InfectingController implements Initializable {
     TranslateTransition translateTransition;
-    private Virus virus;
-    private Cell cell;
+    protected Virus virus;
+    protected Cell cell;
 
     public InfectingController(Virus virus, Cell cell) {
         this.virus = virus;
@@ -50,31 +47,27 @@ public class InfectingController implements Initializable {
 
         translateTransition = createTranslateTransitionFor(rootVirus, cell.getCenter());
 
-        if (virus instanceof EnvelopeVirus) {
-            envelopeAttack();
-        } else {
-            nonEnvelopeAttack();
-        }
+        attack();
 
     }
 
     @FXML
-    private StackPane cellPane;
+    protected StackPane cellPane;
 
     @FXML
-    private ImageView layer;
+    protected ImageView layer;
 
     @FXML
-    private ImageView nucleus;
+    protected ImageView nucleus;
 
     @FXML
-    private StackPane rootVirus;
+    protected StackPane rootVirus;
 
     @FXML
-    private AnchorPane root;
+    protected AnchorPane root;
 
 
-    private TranslateTransition createTranslateTransitionFor(Node node, Node target) {
+    protected TranslateTransition createTranslateTransitionFor(Node node, Node target) {
         TranslateTransition translateTransition = new TranslateTransition();
         translateTransition.setNode(node);
         translateTransition.setDuration(Duration.millis(2000));
@@ -85,56 +78,12 @@ public class InfectingController implements Initializable {
         return translateTransition;
     }
 
-    private boolean intersects(Node node1, Node node2) {
+    protected boolean intersects(Node node1, Node node2) {
         return node1.localToScene(node1.getBoundsInLocal()).intersects(node2.localToScene(node2.getBoundsInLocal()));
     }
 
-    void envelopeAttack() {
-        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(400),
-                (evt) -> {
-                    translateTransition.play();
-                    if (intersects(rootVirus, cell.getLayer())) {
-                        virus.attack(cell);
-                    }
-                    if (intersects(rootVirus, cell.getCenter())) {
-                        translateTransition.pause();
-                        cell.addInfectVirus(virus);
-                    }
-                })
-        );
-        timeline.setCycleCount(20);  //Animation.INDEFINITE
-        timeline.play();
-    }
 
-    void nonEnvelopeAttack() {
-        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(400),
-                (evt) -> {
-                    translateTransition.play();
-                    if (intersects(rootVirus, cell.getMembrane())) {
-                        virus.attack(cell);
-                    }
-                    if (intersects(rootVirus, cell.getCenter())) {
-                        translateTransition.pause();
-                        virus.setVisible(false);
-                        root.getChildren().add(infectCell());
-                    }
-                })
-        );
-        timeline.setCycleCount(20);  //Animation.INDEFINITE
-        timeline.play();
-    }
+    protected void attack(){}
 
-    StackPane infectCell() {
-        StackPane sPane = new StackPane();
-        Cell cell = new Cell(this.cell);
-        cell.setComponentsSize(300, 300, 300);
-        sPane.getChildren().add(cell);
-        virus.attack(cell);
-        int maxX = 400;
-        int maxY = 300;
-        int min = 0;
-        sPane.setTranslateX(((Math.random() * (maxX - min)) + min));
-        sPane.setTranslateY(((Math.random() * (maxY - min)) + min));
-        return sPane;
-    }
+
 }
