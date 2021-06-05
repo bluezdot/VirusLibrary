@@ -87,11 +87,6 @@ public class StructureController implements Initializable {
         borderPane.setLeft(left);
         BorderPane.setAlignment(left, Pos.CENTER);
     }
-
-    public void setStage(Stage stage) {
-        this.stage = stage;
-    }
-
     @FXML
     void showInfectingProcess(ActionEvent event) throws Exception {
 

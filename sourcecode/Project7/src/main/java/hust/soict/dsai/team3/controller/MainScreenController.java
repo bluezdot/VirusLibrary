@@ -10,7 +10,6 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.DialogPane;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
@@ -70,12 +69,15 @@ public class MainScreenController {
 
     @FXML
     void itemUsageOnPressed(ActionEvent event) throws IOException {
+        Button returnButton = new Button("Return to main");
+        returnButton.setPrefSize(500, 100);
+
         ScrollPane scrollPane = new ScrollPane();
         VBox panel = new VBox();
         panel.setAlignment(Pos.CENTER);
         Stage primaryStage = (Stage) btnHIV.getScene().getWindow();
         panel.getChildren().addAll(getTitle("Step 1"), getImage("usage/one.png"), getTitle("Step 1"), getImage("usage/two.png"), getTitle("Step 2"), getImage("usage/three.png"), getTitle("Step 2"), getImage("usage/five.png"), getTitle("Step 3"), getImage("usage/four.png"));
-        Button returnButton = new Button("Return to main");
+
         returnButton.setOnAction(e -> {
             FXMLLoader fxmlloader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/MainScreen.fxml"));
 
@@ -92,6 +94,45 @@ public class MainScreenController {
             primaryStage.setTitle("VIRUS MAIN MENU");
             primaryStage.setScene(scene);
             primaryStage.show();
+
+//            // Set X close
+//            primaryStage.setOnCloseRequest(eve -> {
+//                // window = primaryStage;
+//
+//                try {
+//                    FXMLLoader fxmlloader1 = new FXMLLoader(getClass().getClassLoader().getResource("fxml/MainScreen.fxml"));
+//                    MainScreenController controller1 = new MainScreenController();
+//                    fxmlloader1.setController(controller1);
+//                    Parent root1 = fxmlloader1.load();
+//                    Scene scene1 = new Scene(root1);
+//
+//
+//                    primaryStage.setTitle("VIRUS MAIN MENU");
+//                    primaryStage.setScene(scene1);
+//                    primaryStage.show();
+//
+//                } catch (Exception e1) {
+//                    e1.printStackTrace();
+//                }
+//
+//                // Set X close confirmation
+//                primaryStage.setOnCloseRequest(e2 -> {
+//                    JFrame frame = new JFrame();
+//                    int n = JOptionPane.showConfirmDialog(
+//                            frame,
+//                            "Do you want to exit the program ?",
+//                            "Exit application",
+//                            JOptionPane.YES_NO_OPTION);
+//                    if (n == 0) {
+//                        // close application when user confirm "Yes"
+//                        System.out.println(n);
+//                        System.exit(0);
+//                    } else {
+//                        // cancel the application exit when user click "No"
+//                        event.consume();
+//                    }
+//                });
+//            });
         });
         panel.getChildren().add(returnButton);
         scrollPane.setContent(panel);
@@ -143,8 +184,6 @@ public class MainScreenController {
     void btnHIVOnPressed(ActionEvent event) throws IOException {
         Stage primaryStage = (Stage) btnHIV.getScene().getWindow();
         Virus hiv = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/HIV/").getFile());
-        Virus pvirus = new NonEnvelopeVirus(getClass().getClassLoader().getResource("virus/PolioVirus/").getFile());
-        Virus hcv = new EnvelopeVirus(getClass().getClassLoader().getResource("virus/HCV/").getFile());
 
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/virus_structure.fxml"));
         StructureController hover = new StructureController(hiv);
